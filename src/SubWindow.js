@@ -20,7 +20,10 @@ class SubWindow extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {mqtt: 'no message'};
+    this.state = {
+      mqtt: 'no message',
+      imagePath: '/img/token-card-back.jpg'
+    };
 
     Amplify.PubSub.subscribe('iot-demo-reader').subscribe({
       next: data => {
@@ -50,7 +53,7 @@ class SubWindow extends React.Component {
   render() {
     return(
       <div>
-        <img src={this.state.imagePath} alt="selected token"/>
+        <img src={this.state.imagePath} alt="selected token" width="300px"/>
         <p>{this.state.imagePath}</p>
       </div>
     )
