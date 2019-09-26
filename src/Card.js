@@ -16,7 +16,7 @@ Amplify.addPluggable(new AWSIoTProvider({
   aws_pubsub_endpoint: `wss://${process.env.REACT_APP_MQTT_ID}.iot.${process.env.REACT_APP_REGION}.amazonaws.com/mqtt`,
 }));
 
-class SubWindow extends React.Component {
+class Card extends React.Component {
   constructor(props) {
     super(props);
 
@@ -28,8 +28,8 @@ class SubWindow extends React.Component {
     Amplify.PubSub.subscribe('iot-demo-reader').subscribe({
       next: data => {
         console.log('Message received', data);
-        if (data.value) {
-          switch(data.value) {
+        if (data.value.id) {
+          switch(data.value.id) {
             case 70:
               this.setState({imagePath: '/img/token-elemental.jpg'});
               break;
@@ -61,4 +61,4 @@ class SubWindow extends React.Component {
 
 }
 
-export default SubWindow;
+export default Card;

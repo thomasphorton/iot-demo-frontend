@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import SubWindow from './SubWindow';
+import Card from './Card';
 import './App.css';
 
 class App extends Component {
@@ -7,7 +7,7 @@ class App extends Component {
     return (
       <div className="App">
         <h1>IoT Card Reader</h1>
-        <SubWindow />
+        <Card />
       </div>
     );
   }
